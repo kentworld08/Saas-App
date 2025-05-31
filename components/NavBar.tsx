@@ -3,6 +3,7 @@ import Link from "next/link";
 import NavItems from "./NavItems";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { currentUser } from "@clerk/nextjs/server";
+import SideBar from "./SideBar";
 const NavBar = async () => {
   const user = await currentUser();
   return (
@@ -24,7 +25,7 @@ const NavBar = async () => {
             )}
           </div>
         </Link>
-        <div className="flex items-center gap-8">
+        <div className=" hidden sm:flex sm:items-center sm:gap-8 ">
           <NavItems />
           <SignedOut>
             <SignInButton>
@@ -37,6 +38,7 @@ const NavBar = async () => {
             <UserButton />
           </SignedIn>
         </div>
+        <SideBar />
       </nav>
     </header>
   );
