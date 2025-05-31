@@ -60,7 +60,7 @@ const CompanionForm = () => {
       console.log("Failed to create a companion");
       redirect("/");
     }
-    console.log(values);
+
     reset();
   };
   return (

@@ -1,20 +1,27 @@
 import Image from "next/image";
 import Link from "next/link";
 import NavItems from "./NavItems";
-import {
-  SignInButton,
-  SignUpButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from "@clerk/nextjs";
-const NavBar = () => {
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { currentUser } from "@clerk/nextjs/server";
+const NavBar = async () => {
+  const user = await currentUser();
   return (
     <header className="fixed top-0 left-0 right-0 shadow-2xl z-5 mb-10">
       <nav className="navbar">
         <Link href={"/"}>
           <div className="flex items-center gap-2.5 cursor-pointer">
-            <Image src={"/images/logo.svg"} alt="logo" width={46} height={44} />
+            {user ? (
+              <span className="font-semibold text-base sm:font-bold sm:text-xl">
+                Welcome,&nbsp;{user.firstName}
+              </span>
+            ) : (
+              <Image
+                src={"/images/logo.svg"}
+                alt="logo"
+                width={46}
+                height={44}
+              />
+            )}
           </div>
         </Link>
         <div className="flex items-center gap-8">
