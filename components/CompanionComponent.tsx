@@ -74,7 +74,7 @@ const CompanionComponent = ({
       vapi.off("speech-start", onSpeechStart);
       vapi.off("speech-end", onSpeechEnd);
     };
-  }, []);
+  }, [companionId]);
 
   const toggleMicrophone = () => {
     const isMuted = vapi.isMuted();
@@ -96,7 +96,7 @@ const CompanionComponent = ({
       clientMessages: ["transcript"],
       severMessages: [],
     };
-    // @ts-expect-error
+    // @ts-expect-error: configureAssistant has a type mismatch due to dynamic overrides
     vapi.start(configureAssistant((voice, style), assistantOverrides));
   };
 

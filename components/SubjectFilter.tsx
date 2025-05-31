@@ -32,7 +32,7 @@ const SearchInput = () => {
       });
     }
     router.push(newUrl, { scroll: false });
-  }, [subject]);
+  }, [subject, searchParams, router]);
   return (
     <Select onValueChange={setSubject} value={subject}>
       <SelectTrigger className="input capitalize">

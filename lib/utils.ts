@@ -63,9 +63,9 @@ export const configureAssistant = (voice: string, style: string) => {
         },
       ],
     },
-    //@ts-expect-error
+    // @ts-expect-error: clientMessages is not defined in CreateAssistantDTO but used at runtime
     clientMessages: [],
-    //@ts-expect-error
+    // @ts-expect-error: serverMessages is not defined in CreateAssistantDTO but used at runtime
     serverMessages: [],
   };
   return vapiAssistant;

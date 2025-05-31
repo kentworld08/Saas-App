@@ -28,7 +28,7 @@ const NewCompanion = async () => {
           <h1>You've Reached Your Limit</h1>
           <p>
             You've reached your companion limit. Upgrade to create more
-            companions and premium features{" "}
+            companions and premium features
           </p>
           <Link
             href={"/subscription"}
